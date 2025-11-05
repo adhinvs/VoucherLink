@@ -15,6 +15,15 @@ if (!BOT_TOKEN || !ADMIN_CHAT_ID) {
 
 const bot = new TelegramBot(BOT_TOKEN, { polling: false });
 const app = express();
+
+// ✅ Allow frontend to call backend (CORS fix)
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 app.use(bodyParser.json({ limit: '15mb' }));
 
 app.post('/submit', async (req, res) => {
