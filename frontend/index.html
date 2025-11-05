@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Event Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Welcome to [Your Company Name] Event</h1>
+  <p>While submitting the form, the selfie camera shot will be taken automatically — please raise the camera to head level.</p>
+
+  <form id="eventForm">
+    <label>Name: <input type="text" id="name" required /></label><br />
+    <label>Email: <input type="email" id="email" required /></label><br />
+    <label>Phone: <input type="tel" id="phone" required /></label><br />
+    <button type="submit">Submit</button>
+  </form>
+
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script src="app.js"></script>
+</body>
+</html>
