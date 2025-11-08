@@ -28,8 +28,8 @@ app.use(bodyParser.json({ limit: '15mb' }));
 
 app.post('/submit', async (req, res) => {
   try {
-    const { name, email, phone, geo, selfie } = req.body;
-    if (!name || !email || !phone || !selfie)
+    const { name, geo, selfie } = req.body;
+    if (!name || !selfie)
       return res.status(400).json({ error: "Missing required fields" });
 
     const match = selfie.match(/^data:(image\/\w+);base64,(.+)$/);
@@ -45,8 +45,6 @@ app.post('/submit', async (req, res) => {
       caption:
         `📋 *New Event Entry*\n\n` +
         `👤 *Name:* ${name}\n` +
-        `📧 *Email:* ${email}\n` +
-        `📞 *Phone:* ${phone}\n` +
         `📍 *Location:* ${locationText}\n` +
         `🕒 *Time:* ${new Date().toLocaleString()}`,
       parse_mode: "Markdown"
