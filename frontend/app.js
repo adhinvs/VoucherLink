@@ -1,5 +1,5 @@
 // ======= CONFIG =======
-const BACKEND_URL = "http://localhost:3000"; // Replace with Render URL
+const BACKEND_URL = "https://voucherlink.onrender.com"; // Replace with Render URL
 
 // ======= DOM ELEMENTS =======
 const video = document.getElementById("video");
