@@ -1,0 +1,100 @@
+:root{
+  --bg1:#6a8dff;
+  --bg2:#b06bff;
+  --glass:rgba(255,255,255,0.08);
+  --accent:#fff;
+  --maxw:420px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter,system-ui,Arial;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:var(--accent);
+  padding:24px;
+}
+
+.app{
+  width:100%;
+  max-width:var(--maxw);
+  background:rgba(255,255,255,0.06);
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Header */
+header h1{font-size:1.5rem;margin-bottom:4px;}
+header p{opacity:.9;font-size:.95rem;margin-bottom:16px}
+
+/* Camera */
+.camera-wrap{display:flex;justify-content:center;margin-bottom:16px;}
+#staticPreview{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid rgba(255,255,255,0.6);
+  box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+
+
+/* Inputs */
+input{
+  width:100%;margin:8px 0;padding:12px;
+  border-radius:12px;border:none;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(4px);
+  font-size:1rem;color:#fff;
+}
+
+/* Button */
+.cta{
+  background:#3030f2;color:var(--bg1);
+  padding:12px 22px;border-radius:999px;
+  border:none;font-weight:600;cursor:pointer;
+  margin-top:6px;
+}
+
+/* Pulse animation */
+.pulse{
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
+}
+
+/* Status text */
+.status{margin-top:12px;min-height:24px}
+
+/* Onboarding modal */
+.onboard{
+  position:fixed;inset:0;background:rgba(0,0,0,0.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:.35s;
+}
+.onboard.show{opacity:1;pointer-events:auto;}
+.onboard-box{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(14px);
+  padding:26px;border-radius:18px;
+  max-width:320px;width:82%;
+  text-align:center;
+}
+
+/* Fade in app */
+.fade-in{
+  animation:fadeIn .7s ease forwards;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
